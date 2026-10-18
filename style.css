@@ -1,0 +1,1467 @@
+/* =================================
+   リセット
+================================= */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    font-family:
+        "Kaisei Decol",
+        serif;
+
+    background: #160032;
+    color: white;
+}
+
+
+/* =================================
+   アプリ本体
+================================= */
+
+.app {
+    position: relative;
+
+    width: 100%;
+    min-height: 100dvh;
+
+    overflow: hidden;
+}
+
+
+/* =================================
+   ヘッダー
+================================= */
+
+.header {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    padding:
+        calc(18px + env(safe-area-inset-top))
+        22px
+        18px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    z-index: 20;
+}
+
+
+.club-name {
+    font-size: clamp(18px, 5vw, 25px);
+
+    font-weight: 900;
+
+    white-space: nowrap;
+
+    text-shadow:
+        2px 2px 0 #21004d;
+}
+
+
+/* =================================
+   ハンバーガーメニュー
+================================= */
+
+.menu-button {
+    width: 48px;
+    height: 48px;
+
+    border: none;
+    background: transparent;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    gap: 7px;
+
+    cursor: pointer;
+
+    padding: 5px;
+}
+
+
+.menu-button span {
+    display: block;
+
+    width: 100%;
+    height: 6px;
+
+    background: white;
+
+    border-radius: 10px;
+}
+
+
+/* =================================
+   トップページ
+================================= */
+
+.top {
+    position: relative;
+
+    width: 100%;
+    min-height: 100dvh;
+
+    background-image:
+        url("img/top-bg.png");
+
+    background-size: cover;
+
+    background-position:
+        center center;
+
+    background-repeat: no-repeat;
+
+    display: flex;
+
+    justify-content: center;
+}
+
+
+/* =================================
+   トップコンテンツ
+================================= */
+
+.top-content {
+    width: 100%;
+
+    min-height: 100dvh;
+
+    padding-top:
+        calc(120px + env(safe-area-inset-top));
+
+    padding-left: 15px;
+    padding-right: 15px;
+
+    padding-bottom: 40px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    text-align: center;
+}
+
+
+/* =================================
+   ロゴ
+================================= */
+
+.logo {
+    width: 115%;
+
+    max-width: 800px;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    margin: 15px auto 0;
+
+    transform: rotate(-2deg);
+
+    filter:
+        drop-shadow(3px 4px 0 #21004d);
+}
+
+
+.logo img {
+    display: block;
+
+    width: 100%;
+
+    height: auto;
+}
+
+
+/* =================================
+   キャッチコピー
+================================= */
+
+.catch-copy {
+    margin-top: 20px;
+
+    font-size:
+        clamp(15px, 4.2vw, 20px);
+
+    font-weight: 800;
+
+    text-shadow:
+        2px 2px 4px #21004d;
+}
+
+
+/* =================================
+   進行状況
+================================= */
+
+.progress {
+    margin-top: 24px;
+
+    width: 155px;
+    height: 55px;
+
+    border-radius: 50px;
+
+    background:
+        rgba(33, 0, 77, 0.9);
+
+    border:
+        3px solid #eee3ff;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 9px;
+
+    font-size: 25px;
+
+    font-weight: 900;
+
+    box-shadow:
+        0 4px 10px rgba(0, 0, 0, 0.25);
+}
+
+
+.progress-ghost {
+    font-size: 27px;
+}
+
+
+/* =================================
+   メインボタン
+================================= */
+
+.start-button {
+    position: relative;
+
+    width: min(88%, 400px);
+    min-height: 72px;
+
+    margin-top: 25px;
+
+    border: none;
+    border-radius: 24px;
+
+    background: #ff6f00;
+    color: white;
+    text-shadow:
+        3px 3px 2px #673500;
+
+    font-family: "Kaisei Decol", serif;
+    font-size: clamp(24px, 7vw, 34px);
+    font-weight: 900;
+
+    cursor: pointer;
+
+    /* 文字を上下・左右中央にする */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    gap: 10px;
+
+    box-shadow:
+        0 7px 0 #b84300;
+
+    transition:
+        transform 0.15s,
+        box-shadow 0.15s;
+}
+
+
+.start-button:active {
+    transform: translateY(5px);
+
+    box-shadow:
+        0 2px 0 #b84300;
+}
+
+
+.arrow {
+    margin-left: 10px;
+
+    font-size: 38px;
+}
+
+
+/* =================================
+   下のボタン
+================================= */
+
+.sub-buttons {
+    width: min(88%, 400px);
+
+    display: flex;
+
+    gap: 10px;
+
+    margin-top: 15px;
+}
+
+
+.sub-button {
+    flex: 1;
+
+    min-height: 52px;
+
+    border:
+        2px solid white;
+
+    border-radius: 18px;
+
+    background:
+        rgba(33, 0, 77, 0.88);
+
+    color: white;
+
+    font-size:
+        clamp(12px, 3.5vw, 16px);
+
+    font-weight: 800;
+
+    cursor: pointer;
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 4px;
+}
+
+
+.sub-button b {
+    font-size: 20px;
+
+    margin-left: 2px;
+}
+
+
+/* =================================
+   メニュー
+================================= */
+
+.menu {
+    position: fixed;
+
+    top: 0;
+    right: -100%;
+
+    width: 82%;
+
+    height: 100dvh;
+
+    background: #21004d;
+
+    z-index: 100;
+
+    padding:
+        100px 30px;
+
+    transition:
+        right 0.35s ease;
+}
+
+
+.menu.open {
+    right: 0;
+}
+
+
+.close-button {
+    position: absolute;
+
+    top: 18px;
+    right: 22px;
+
+    border: none;
+
+    background: none;
+
+    color: white;
+
+    font-size: 60px;
+
+    line-height: 1;
+
+    cursor: pointer;
+}
+
+
+.menu nav {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 40px;
+
+    margin-top: 80px;
+}
+
+
+.menu nav a {
+    color: white;
+
+    text-decoration: none;
+
+    font-size: 25px;
+
+    font-weight: 900;
+}
+
+
+/* =================================
+   スマホ
+================================= */
+
+@media (max-width: 767px) {
+
+    .top-content {
+        width: 100%;
+        max-width: 100%;
+
+        padding-left: 15px;
+        padding-right: 15px;
+
+        padding-top:
+            calc(110px + env(safe-area-inset-top));
+    }
+
+
+    .logo {
+        width: 100%;
+        max-width: 650px;
+
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+
+    .logo img {
+        width: 120%;
+        max-width: none;
+    }
+
+
+    .catch-copy {
+        margin-top: 18px;
+    }
+
+
+    .start-button {
+        width: 90%;
+    }
+
+
+    .sub-buttons {
+        width: 90%;
+    }
+
+}
+
+
+/* =================================
+   少し大きいスマホ・タブレット
+================================= */
+
+@media (min-width: 500px) and (max-width: 767px) {
+
+    .top-content {
+        max-width: 600px;
+
+        margin: 0 auto;
+    }
+
+}
+
+
+/* =================================
+   PC表示
+================================= */
+
+@media (min-width: 768px) {
+
+    body {
+        display: flex;
+
+        justify-content: center;
+
+        background: #160032;
+    }
+
+
+    .app {
+        width: 430px;
+
+        max-width: 430px;
+
+        min-height: 100dvh;
+
+        box-shadow:
+            0 0 40px rgba(0, 0, 0, 0.5);
+    }
+
+
+    .top-content {
+        width: 100%;
+
+        max-width: 430px;
+
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+
+    .logo {
+        width: 115%;
+
+        max-width: 800px;
+    }
+
+}
+
+/* =================================
+   おばけを探すページ
+================================= */
+
+.hunt {
+    position: relative;
+
+    width: 100%;
+    min-height: 100dvh;
+
+    background:
+        linear-gradient(
+            rgba(33, 0, 77, 0.35),
+            rgba(33, 0, 77, 0.65)
+        ),
+        url("img/top-bg.png");
+
+    background-size: cover;
+
+    background-position: center;
+
+    background-repeat: no-repeat;
+
+    display: flex;
+
+    justify-content: center;
+}
+
+
+.hunt-content {
+    width: 100%;
+
+    min-height: 100dvh;
+
+    padding:
+        calc(125px + env(safe-area-inset-top))
+        20px
+        40px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    text-align: center;
+}
+
+
+/* =================================
+   タイトル
+================================= */
+
+.hunt-title {
+    width: 100%;
+    
+    text-align: center;
+
+    margin:20px 0 0 0;
+
+    font-family:
+        "Kaisei Decol",
+        serif;
+
+    font-size:
+        clamp(30px, 9vw, 42px);
+
+    font-weight: 700;
+
+    text-shadow:
+        3px 3px 0 #21004d;
+
+    margin-top: 20px;
+}
+
+
+.hunt-description {
+    margin-top: 18px;
+
+    font-family:
+        "Kaisei Decol",
+        serif;
+
+    font-size:
+        clamp(14px, 4vw, 18px);
+
+    font-weight: 500;
+
+    line-height: 1.9;
+
+    text-shadow:
+        2px 2px 4px #21004d;
+}
+
+
+/* =================================
+   合言葉入力
+================================= */
+
+.keyword-box {
+    width: min(90%, 390px);
+
+    margin-top: 30px;
+
+    padding: 25px 20px 22px;
+
+    border-radius: 25px;
+
+    background:
+        rgba(33, 0, 77, 0.9);
+
+    border:
+        3px solid #eee3ff;
+
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.3);
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+}
+
+
+.keyword-box label {
+    font-family:
+        "Kaisei Decol",
+        serif;
+
+    font-size: 21px;
+
+    font-weight: 700;
+
+    text-shadow:
+        2px 2px 0 #160032;
+
+    margin-bottom: 15px;
+}
+
+
+.keyword-box input {
+    width: 100%;
+
+    height: 55px;
+
+    padding:
+        0 15px;
+
+    border:
+        3px solid #eee3ff;
+
+    border-radius: 15px;
+
+    background: white;
+
+    color: #21004d;
+
+    font-family:
+        "Kaisei Decol",
+        serif;
+
+    font-size: 18px;
+
+    text-align: center;
+
+    outline: none;
+}
+
+
+.keyword-box input:focus {
+    border-color: #ff6f00;
+
+    box-shadow:
+        0 0 0 3px rgba(255, 111, 0, 0.25);
+}
+
+
+.keyword-box input::placeholder {
+    color: #999;
+}
+
+
+/* =================================
+   合言葉ボタン
+================================= */
+
+.keyword-button {
+    width: 100%;
+
+    min-height: 62px;
+
+    margin-top: 17px;
+
+    border: none;
+
+    border-radius: 19px;
+
+    background: #ff6f00;
+
+    color: white;
+
+    font-family:
+        "Kaisei Decol",
+        serif;
+
+    font-size: 23px;
+
+    font-weight: 700;
+
+    text-shadow:
+        2px 2px 0 #21004d;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 8px;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 6px 0 #b84300;
+
+    transition:
+        transform 0.15s,
+        box-shadow 0.15s;
+}
+
+
+.keyword-button:active {
+    transform: translateY(4px);
+
+    box-shadow:
+        0 2px 0 #b84300;
+}
+
+
+.keyword-button span {
+    font-size: 34px;
+
+    line-height: 1;
+}
+
+
+/* =================================
+   戻るボタン
+================================= */
+
+.back-button {
+    margin-top: 25px;
+
+    border: none;
+
+    background: transparent;
+
+    color: white;
+
+    font-family:
+        "Kaisei Decol",
+        serif;
+
+    font-size: 17px;
+
+    font-weight: 700;
+
+    text-shadow:
+        2px 2px 3px #21004d;
+
+    cursor: pointer;
+}
+
+/* おばけ発見結果 */
+.result {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.ghost-found {
+    padding: 20px 10px;
+    text-align: center;
+}
+
+.ghost-icon {
+    font-size: 80px;
+    margin-bottom: 10px;
+}
+
+.ghost-found h2 {
+    font-family: "Kaisei Decol", serif;
+    font-size: 28px;
+    margin-bottom: 10px;
+    text-shadow: 2px 2px 0 #160032;
+}
+
+.ghost-found p {
+    font-family: "Kaisei Decol", serif;
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+.error-message {
+    color: #ffd6d6;
+    font-family: "Kaisei Decol", serif;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.ghost-icon img {
+    width: 180px;
+    max-width: 70%;
+    height: auto;
+    object-fit: contain;
+}
+
+
+/* おばけ図鑑 */
+.encyclopedia {
+    min-height: 100dvh;
+    padding: 35px 18px 45px;
+    background:
+        linear-gradient(rgba(33, 0, 77, 0.86), rgba(22, 0, 50, 0.96)),
+        url("img/top-bg.png");
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+}
+
+.encyclopedia h1 {
+    margin-top: 20px;
+    font-family: "Kaisei Decol", serif;
+    font-size: clamp(27px, 7vw, 36px);
+    text-shadow: 3px 3px 0 #100020;
+}
+
+.book-description {
+    margin-top: 12px;
+    font-family: "Kaisei Decol", serif;
+    font-size: 15px;
+}
+
+.book-progress {
+    margin: 22px auto;
+    padding: 12px;
+    width: 190px;
+    border: 2px solid #eee3ff;
+    border-radius: 30px;
+    background: #38205e;
+    font-size: 19px;
+    font-weight: bold;
+}
+
+.ghost-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.ghost-card {
+    min-width: 0;
+    padding: 12px 8px;
+    border: 2px solid #8466a8;
+    border-radius: 18px;
+    background: rgba(56, 32, 94, 0.95);
+    overflow-wrap: anywhere;
+}
+
+.ghost-card img {
+    display: block;
+    width: 100%;
+    height: 125px;
+    object-fit: contain;
+    margin: 0 auto 8px;
+}
+
+.ghost-card h2 {
+    font-family: "Kaisei Decol", serif;
+    font-size: 19px;
+    margin-bottom: 6px;
+}
+
+.ghost-card p {
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+.ghost-card.locked {
+    background: rgba(25, 12, 43, 0.9);
+    border-style: dashed;
+}
+
+.ghost-card.locked .question-mark {
+    height: 125px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 65px;
+    color: #c9b5e8;
+}
+
+.book-back {
+    max-width: 320px;
+    margin: 28px auto 0;
+    font-family: "Kaisei Decol", serif;
+}
+
+
+/* コンプリート画面 */
+.complete-message {
+    margin: 28px auto 10px;
+    padding: 25px 16px;
+    max-width: 500px;
+    border: 3px solid #ffd66b;
+    border-radius: 24px;
+    background: linear-gradient(145deg, #542080, #21004d);
+    box-shadow: 0 0 24px rgba(255, 214, 107, 0.25);
+    text-align: center;
+    animation: completeAppear 0.6s ease;
+}
+
+.complete-stars {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+
+.complete-message h2 {
+    color: #ffd66b;
+    font-size: clamp(28px, 8vw, 38px);
+    text-shadow: 3px 3px 0 #160032;
+}
+
+.complete-main {
+    font-size: 19px;
+    font-weight: bold;
+    margin: 15px 0 8px;
+}
+
+.reward-box {
+    margin-top: 22px;
+    padding: 18px 10px;
+    border: 2px dashed #ffd66b;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.08);
+    font-weight: bold;
+    line-height: 1.8;
+}
+
+.reward-box p {
+    font-size: 13px;
+    font-weight: normal;
+}
+
+@keyframes completeAppear {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.complete-note {
+    margin-top: 18px;
+    font-size: 12px;
+    line-height: 1.8;
+    color: #e5d7ff;
+}
+
+
+.complete-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(10, 0, 25, 0.85);
+    overflow-y: auto;
+}
+
+.complete-popup {
+    width: 100%;
+    max-width: 420px;
+    max-height: 90dvh;
+    overflow-y: auto;
+    padding: 25px 18px;
+    border: 3px solid #ffd66b;
+    border-radius: 24px;
+    background: linear-gradient(145deg, #542080, #21004d);
+    color: white;
+    text-align: center;
+    box-shadow: 0 0 30px rgba(255, 214, 107, 0.3);
+}
+
+.complete-popup h2 {
+    color: #ffd66b;
+    font-size: 34px;
+    text-shadow: 3px 3px 0 #160032;
+}
+
+.complete-popup .keyword-button {
+    margin-top: 20px;
+}
+
+
+/* コンプリート画面のおばけ */
+.complete-ghost {
+    display: block;
+    width: 145px;
+    height: 145px;
+    object-fit: contain;
+    margin: 12px auto 18px;
+    filter: drop-shadow(0 0 14px rgba(255, 214, 107, 0.65));
+    animation:
+        ghostFloat 2s ease-in-out infinite,
+        ghostGlow 2s ease-in-out infinite;
+}
+
+/* 上下にふわふわ */
+@keyframes ghostFloat {
+    0%, 100% {
+        transform: translateY(0) rotate(-4deg);
+    }
+    50% {
+        transform: translateY(-14px) rotate(4deg);
+    }
+}
+
+/* 光が強くなったり弱くなったりする */
+@keyframes ghostGlow {
+    0%, 100% {
+        filter: drop-shadow(0 0 8px rgba(255, 214, 107, 0.35));
+    }
+    50% {
+        filter: drop-shadow(0 0 22px rgba(255, 214, 107, 0.95));
+    }
+}
+
+/* 引換状況 */
+.redeem-status {
+    margin: 18px auto 12px;
+    padding: 12px;
+    border: 1px solid #ffd66b;
+    border-radius: 12px;
+    color: #ffd66b;
+    font-weight: bold;
+}
+
+/* スタッフ用の入力欄 */
+.staff-panel {
+    margin-top: 14px;
+    padding: 16px 12px;
+    border: 1px dashed #ffd66b;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.08);
+}
+
+.staff-panel p {
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+.staff-panel input {
+    box-sizing: border-box;
+    width: 100%;
+    margin: 10px 0;
+    padding: 13px;
+    border: 2px solid #b99bdf;
+    border-radius: 10px;
+    font-size: 16px;
+}
+
+.redeem-message {
+    color: #ffd66b;
+    font-weight: bold;
+}
+
+.staff-panel button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+
+/* ===== 遊び方ページ ===== */
+
+.howto {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 28px 18px 36px;
+    color: #ffffff;
+}
+
+.howto-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.howto-subtitle {
+    color: #ffd66b;
+    font-size: 11px;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+}
+
+.howto-header h1 {
+    color: #ffd66b;
+    font-size: 30px;
+    margin: 12px 0;
+    text-shadow: 2px 3px 0 #160032;
+}
+
+.howto-header > p:last-child {
+    font-size: 13px;
+    line-height: 1.8;
+    color: #e5d7ff;
+}
+
+/* 各ステップ */
+
+.howto-steps {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.howto-card {
+    position: relative;
+    padding: 22px 18px;
+    border: 2px solid #8052a8;
+    border-radius: 20px;
+    background: linear-gradient(
+        145deg,
+        #452064,
+        #301052
+    );
+    text-align: center;
+    overflow: hidden;
+}
+
+.howto-number {
+    position: absolute;
+    top: 10px;
+    left: 12px;
+    color: #ffd66b;
+    font-size: 13px;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.howto-icon {
+    font-size: 42px;
+    margin: 4px 0 10px;
+}
+
+.howto-card h2 {
+    color: #ffd66b;
+    font-size: 18px;
+    margin: 8px 0 12px;
+}
+
+.howto-card p {
+    color: #f4edff;
+    font-size: 13px;
+    line-height: 2;
+    margin: 0;
+}
+
+/* 最後のステップ */
+
+.howto-card-last {
+    border-color: #ffd66b;
+    background: linear-gradient(
+        145deg,
+        #603080,
+        #3b155d
+    );
+}
+
+/* 注意事項 */
+
+.howto-warning {
+    margin-top: 26px;
+    padding: 18px 16px;
+    border: 1px dashed #ffad52;
+    border-radius: 16px;
+    background: rgba(255, 173, 82, 0.08);
+}
+
+.howto-warning h2 {
+    color: #ffcb79;
+    font-size: 16px;
+    margin: 0 0 12px;
+}
+
+.howto-warning ul {
+    padding-left: 20px;
+    margin: 0;
+}
+
+.howto-warning li {
+    color: #f4edff;
+    font-size: 12px;
+    line-height: 2;
+    margin-bottom: 5px;
+}
+
+/* ページ下部のボタン */
+
+.howto-start,
+.howto-back {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    margin-top: 20px;
+}
+
+.howto-back {
+    margin-bottom: 10px;
+}
+
+/* 少し広い画面でも読みやすく */
+
+@media (min-width: 600px) {
+    .howto {
+        padding: 36px 28px;
+    }
+
+    .howto-card {
+        padding: 26px;
+    }
+}
+
+
+/* =================================
+   HALLOWEEN GHOST HUNT
+   おばけ発見アニメーション＋待機中の動き
+================================= */
+
+/* 共通：アニメーション中の表示 */
+.ghost-icon {
+    position: relative;
+    overflow: visible;
+}
+
+/* ① ボー：びくっと登場 → 左右にふわふわ */
+.anim-bo {
+    animation:
+        boStart 0.65s ease-out both,
+        boShake 0.25s ease-in-out 0.15s 2,
+        boIdle 2.4s ease-in-out 0.65s infinite;
+}
+
+@keyframes boStart {
+    0%   { transform: translateY(25px) scale(0.5); opacity: 0; }
+    60%  { transform: translateY(-18px) scale(1.1); opacity: 1; }
+    100% { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+@keyframes boShake {
+    0%, 100% { rotate: 0deg; }
+    25% { rotate: -5deg; }
+    75% { rotate: 5deg; }
+}
+
+@keyframes boIdle {
+    0%, 100% { transform: translateY(0) rotate(-2deg); }
+    50% { transform: translateY(-7px) rotate(2deg); }
+}
+
+/* ② フラン：上からドンッ！ → ゆっくり体を傾ける */
+.anim-fran {
+    transform-origin: center bottom;
+    animation:
+        franDrop 0.65s cubic-bezier(.2, .8, .3, 1.3) both,
+        franIdle 2.8s ease-in-out 0.65s infinite;
+}
+
+@keyframes franDrop {
+    0%   { transform: translateY(-100px) scale(0.8); opacity: 0; }
+    65%  { transform: translateY(8px) scale(1.08); opacity: 1; }
+    82%  { transform: translateY(-5px) scale(0.97); }
+    100% { transform: translateY(0) scale(1); opacity: 1; }
+}
+
+@keyframes franIdle {
+    0%, 100% { transform: translateY(0) rotate(-2deg); }
+    50% { transform: translateY(0) rotate(2deg); }
+}
+
+/* ③ バット：素早くくるっ！ → 羽ばたくようにパタパタ */
+.anim-bat {
+    transform-origin: center center;
+    animation:
+        batSpin 0.55s ease-out both,
+        batIdle 0.9s ease-in-out 0.55s infinite;
+}
+
+@keyframes batSpin {
+    0%   { transform: rotate(-180deg) scale(0.2); opacity: 0; }
+    70%  { transform: rotate(20deg) scale(1.1); opacity: 1; }
+    100% { transform: rotate(0deg) scale(1); opacity: 1; }
+}
+
+@keyframes batIdle {
+    0%, 100% { transform: translateY(0) rotate(-4deg) scale(1); }
+    50% { transform: translateY(-4px) rotate(4deg) scale(1.02); }
+}
+
+/* ④ パンプキン：ぽよん！ → ずっとぽよぽよ */
+.anim-pump {
+    transform-origin: center bottom;
+    animation:
+        pumpkinBounce 0.8s ease-out both,
+        pumpkinIdle 1.8s ease-in-out 0.8s infinite;
+}
+
+@keyframes pumpkinBounce {
+    0%   { transform: scale(0.3) translateY(20px); opacity: 0; }
+    35%  { transform: scale(1.2, 0.8); opacity: 1; }
+    55%  { transform: scale(0.85, 1.15) translateY(-15px); }
+    75%  { transform: scale(1.08, 0.92); }
+    100% { transform: scale(1) translateY(0); opacity: 1; }
+}
+
+@keyframes pumpkinIdle {
+    0%, 100% { transform: translateY(0) rotate(-2deg) scale(1); }
+    50% { transform: translateY(-6px) rotate(2deg) scale(1.03, 0.98); }
+}
+
+/* ⑤ ウィッチ：魔法のキラキラで登場 → ふわふわ浮く */
+.anim-witch {
+    animation:
+        witchAppear 0.65s ease-out both,
+        witchIdle 2.2s ease-in-out 0.65s infinite;
+}
+
+@keyframes witchAppear {
+    0%   { transform: scale(0) rotate(-25deg); opacity: 0; }
+    65%  { transform: scale(1.15) rotate(8deg); opacity: 1; }
+    100% { transform: scale(1) rotate(0deg); opacity: 1; }
+}
+
+@keyframes witchIdle {
+    0%, 100% { transform: translateY(0) rotate(-2deg); }
+    50% { transform: translateY(-9px) rotate(2deg); }
+}
+
+.anim-witch::before,
+.anim-witch::after {
+    position: absolute;
+    z-index: 2;
+    pointer-events: none;
+    color: #ffe66d;
+    text-shadow: 0 0 8px #ffb8ff;
+    opacity: 0;
+}
+
+.anim-witch::before {
+    content: "✦";
+    font-size: 30px;
+    top: 0;
+    left: 0;
+    animation: magicSparkle 0.9s ease-out 0.2s both;
+}
+
+.anim-witch::after {
+    content: "✨";
+    font-size: 25px;
+    right: 0;
+    bottom: 0;
+    animation: magicSparkle 0.9s ease-out 0.35s both;
+}
+
+@keyframes magicSparkle {
+    0%   { transform: scale(0) rotate(0deg); opacity: 0; }
+    40%  { transform: scale(1.3) rotate(90deg); opacity: 1; }
+    100% { transform: translateY(-18px) scale(0.7) rotate(180deg); opacity: 0; }
+}
+
+/* ⑥ ミイラ：ゆら〜っと登場 → そのまま左右にゆらゆら */
+.anim-mummy {
+    transform-origin: center bottom;
+    animation:
+        mummySway 1.2s ease-in-out both,
+        mummyIdle 2.1s ease-in-out 1.2s infinite;
+}
+
+@keyframes mummySway {
+    0%   { transform: translateX(-25px) rotate(-12deg); opacity: 0; }
+    30%  { transform: translateX(12px) rotate(8deg); opacity: 1; }
+    55%  { transform: translateX(-8px) rotate(-5deg); }
+    78%  { transform: translateX(5px) rotate(3deg); }
+    100% { transform: translateX(0) rotate(0deg); opacity: 1; }
+}
+
+@keyframes mummyIdle {
+    0%, 100% { transform: translateX(0) rotate(-3deg); }
+    50% { transform: translateX(0) rotate(3deg); }
+}
+
+/* 動きを減らす設定の端末では、アニメーションを控えめにする */
+@media (prefers-reduced-motion: reduce) {
+    .anim-bo,
+    .anim-fran,
+    .anim-bat,
+    .anim-pump,
+    .anim-witch,
+    .anim-mummy {
+        animation-duration: 0.01ms;
+        animation-iteration-count: 1;
+    }
+}

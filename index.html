@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+
+    <!-- スマホ対応 -->
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+    <title>HALLOWEEN GHOST HUNT</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kaisei+Decol&display=swap" rel="stylesheet">
+
+
+<body>
+
+    <div class="app">
+
+        <!-- ====================
+             ヘッダー
+        ===================== -->
+
+        <header class="header">
+
+            <div class="club-name">
+                デジタルクリエイト部
+            </div>
+
+        </header>
+
+
+        <!-- ====================
+             トップ
+        ===================== -->
+
+        <main class="top">
+
+            <div class="top-content">
+
+                <!-- ロゴ -->
+                <div class="logo">
+                <img src="img/logo.png" alt="HALLOWEEN GHOST HUNT">
+                </div>
+
+                <!-- キャッチコピー -->
+
+                <p class="catch-copy">
+                    ― 校内に逃げたおばけを探せ！ ―
+                </p>
+
+
+                <!-- 進行状況 -->
+
+                <div class="progress">
+
+                    <span class="progress-ghost">
+                        👻
+                    </span>
+
+                    <div class="progress-count" id="topProgress">0 / 6</div>
+
+                </div>
+
+
+                <!-- メインボタン -->
+
+                <button class="start-button" onclick="location.href='hunt.html'">
+
+                    <span>
+                        おばけを探す！
+                    </span>
+
+                    <span class="arrow">
+                        ›
+                    </span>
+
+                </button>
+
+
+                <!-- 下のボタン -->
+
+                <div class="sub-buttons">
+
+                    <button class="sub-button" onclick="location.href='encyclopedia.html'">
+                        📖
+                        <span>おばけ図鑑</span>
+                        <b>›</b>
+                    </button>
+
+
+                    <button class="sub-button" onclick="location.href='howto.html'">
+                        📜
+                        <span>あそびかた</span>
+                        <b>›</b>
+                    </button>
+
+                </div>
+
+            </div>
+
+        </main>
+
+
+
+
+    <script src="js/main.js"></script>
+
+</body>
+
+</html>

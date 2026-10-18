@@ -1,0 +1,61 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>おばけ図鑑 | HALLOWEEN GHOST HUNT</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kaisei+Decol:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app">
+    <main class="encyclopedia">
+        <h1>📖 おばけ図鑑</h1>
+        <p class="book-description">見つけたおばけを集めよう！</p>
+
+        <div class="book-progress" id="bookProgress">
+            👻 0 / 6 匹 発見！
+        </div>
+
+        <div class="ghost-grid" id="ghostGrid"></div>
+
+        <button class="keyword-button book-back"
+                onclick="location.href='index.html'">
+            トップへ戻る　›
+        </button>
+    </main>
+</div>
+<div id="completeMessage" class="complete-message" hidden>
+    <div class="complete-stars">✨ 🎃 ✨</div>
+    <img
+    src="img/ghost.png"
+    alt="ボー"
+    class="complete-ghost"
+    >
+    <h2>COMPLETE!!</h2>
+    <p class="complete-main">6匹のおばけを全員発見！</p>
+    <p>おめでとう！君はゴーストハンターだ！</p>
+
+    <button class="keyword-button" id="openCompleteOverlay">
+    🎁 引換画面を開く
+</button>
+    <div class="reward-box">
+        🎁 お菓子の掴み取り引換画面
+        <p>この画面をスタッフに見せてね！<br>
+            (スタッフはアリーナ(体育館)の入ってすぐのところにいるよ！)
+        </p>
+    </div>
+
+    <p class="complete-note">
+    ※コンプリート画面は、おばけ図鑑から何度でも確認できます！
+</p>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>
