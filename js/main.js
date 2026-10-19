@@ -10,6 +10,52 @@ import {
     serverTimestamp
 } from "https://www.gstatic.com/firebasejs/13.0.0/firebase-firestore.js";
 
+// ===== Firebaseへの参加記録 =====
+
+// 匿名ログインが完了したら参加記録を準備する
+onAuthStateChanged(auth, async (user) => {
+    if (!user) return;
+
+    const participantRef = doc(db, "participants", user.uid);
+
+    try {
+        const snapshot = await getDoc(participantRef);
+        const found = getFoundGhosts();
+
+        if (!snapshot.exists()) {
+            // 初めて参加したとき
+            await setDoc(participantRef, {
+                createdAt: serverTimestamp(),
+                lastSeenAt: serverTimestamp(),
+                foundGhosts: found
+            });
+        } else {
+            // 以前の記録があるとき
+            const saved = snapshot.data().foundGhosts || [];
+            const merged = [...new Set([...saved, ...found])];
+
+            await updateDoc(participantRef, {
+                lastSeenAt: serverTimestamp(),
+                foundGhosts: merged
+            });
+
+            // Firebaseにある発見記録を端末にも保存
+            localStorage.setItem(
+                "foundGhosts",
+                JSON.stringify(merged)
+            );
+
+            // 図鑑と発見数を更新
+            renderEncyclopedia();
+            renderTopProgress();
+        }
+
+        console.log("参加記録を確認しました！");
+    } catch (error) {
+        console.error("参加記録の保存に失敗しました:", error);
+    }
+});
+
 // おばけ探し
 const keywordInput = document.getElementById("keyword");
 const keywordButton = document.getElementById("keywordButton");
