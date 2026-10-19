@@ -223,20 +223,49 @@ function getFoundGhosts() {
 }
 
 // 発見したおばけを保存する
-
-function saveGhost(id) {
+async function saveGhost(id) {
     const found = getFoundGhosts();
 
     // すでに発見済みなら何もしない
     if (found.includes(id)) return;
 
-    // 発見記録を保存
+    // 発見記録を端末に保存
     found.push(id);
     localStorage.setItem("foundGhosts", JSON.stringify(found));
 
     // 6匹そろった瞬間にコンプリート画面を表示
     if (found.length === 6) {
         showCompleteScreen();
+    }
+
+    // Firebaseにも発見記録を保存
+    const user = auth.currentUser;
+
+    if (!user) {
+        console.warn("Firebaseのログインを確認できませんでした。");
+        return;
+    }
+
+    try {
+        const participantRef = doc(db, "participants", user.uid);
+        const snapshot = await getDoc(participantRef);
+
+        if (snapshot.exists()) {
+            await updateDoc(participantRef, {
+                foundGhosts: arrayUnion(id),
+                lastSeenAt: serverTimestamp()
+            });
+        } else {
+            await setDoc(participantRef, {
+                createdAt: serverTimestamp(),
+                lastSeenAt: serverTimestamp(),
+                foundGhosts: found
+            });
+        }
+
+        console.log("おばけの発見記録を保存しました！");
+    } catch (error) {
+        console.error("発見記録の保存に失敗しました:", error);
     }
 }
 
