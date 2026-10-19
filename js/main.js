@@ -1,3 +1,5 @@
+import { db, auth } from "./firebase.js";
+
 // おばけ探し
 const keywordInput = document.getElementById("keyword");
 const keywordButton = document.getElementById("keywordButton");
