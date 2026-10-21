@@ -37,6 +37,7 @@
       width: 30%;
       touch-action: none;
       user-select: none;
+      -webkit-user-drag: none;
       cursor: grab;
     }
 
@@ -91,9 +92,15 @@
     </div>
 
     <p class="photo-help">
-      お化けをドラッグすると位置を変えられるよ！
+      お化けをドラッグして移動できるよ！<br>
+      下のボタンで大きさも変えられるよ。
     </p>
 
+    <div class="size-controls">
+      <button type="button" id="shrinkGhost">➖ 小さく</button>
+      <button type="button" id="enlargeGhost">➕ 大きく</button>
+    </div>
+    
     <button id="startCamera">📷 カメラを起動</button>
     <button id="takePhoto" disabled>✨ 撮影する</button>
 
