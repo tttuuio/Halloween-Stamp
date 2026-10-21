@@ -18,6 +18,25 @@ const result = document.getElementById("result");
 const preview = document.getElementById("photoPreview");
 const saveLink = document.getElementById("savePhoto");
 
+const enlargeButton = document.getElementById("enlargeGhost");
+const shrinkButton = document.getElementById("shrinkGhost");
+
+let ghostSize = 30; // 最初のおばけの幅（%）
+
+function updateGhostSize() {
+  ghostImage.style.width = `${ghostSize}%`;
+}
+
+enlargeButton.addEventListener("click", () => {
+  ghostSize = Math.min(ghostSize + 5, 80);
+  updateGhostSize();
+});
+
+shrinkButton.addEventListener("click", () => {
+  ghostSize = Math.max(ghostSize - 5, 10);
+  updateGhostSize();
+});
+
 let stream = null;
 let selectedCharacter = null;
 
@@ -52,6 +71,11 @@ if (available.length === 0) {
 
 select.addEventListener("change", () => {
   selectedCharacter = characters[select.value] || null;
+
+  ghostSize = 30;
+  updateGhostSize();
+  ghostImage.style.left = "35%";
+  ghostImage.style.top = "35%";
 
   if (!selectedCharacter) {
     ghostImage.hidden = true;
