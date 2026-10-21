@@ -362,6 +362,16 @@ body {
 }
 
 
+/* お化けと撮影ボタン：図鑑・遊び方の下に配置 */
+.photo-button-row {
+    width: min(88%, 400px);
+    margin-top: 12px;
+}
+
+.photo-button-row .sub-button {
+    width: 100%;
+}
+
 /* =================================
    メニュー
 ================================= */
@@ -450,6 +460,7 @@ body {
 
         padding-top:
             calc(110px + env(safe-area-inset-top));
+       
     }
 
 
@@ -481,6 +492,10 @@ body {
     .sub-buttons {
         width: 90%;
     }
+
+   .photo-button-row {
+       width: 90%;
+   }
 
 }
 
