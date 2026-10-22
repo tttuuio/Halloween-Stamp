@@ -6,30 +6,91 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>お化けと写真 | HALLOWEEN GHOST HUNT</title>
   <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Kaisei+Decol&display=swap" rel="stylesheet">
   <style>
+    
     .photo-page {
+      width: 100%;
       max-width: 600px;
+      min-height: 100dvh;
       margin: auto;
-      padding: 20px;
+      padding: 35px 20px 45px;
       color: white;
       text-align: center;
+      font-family: "Kaisei Decol", serif;
+    
+      background:
+        linear-gradient(
+          rgba(33, 0, 77, 0.55),
+          rgba(22, 0, 50, 0.78)
+        ),
+        url("img/top-bg.png");
+    
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
     }
-
+    
+    .photo-page h1 {
+      margin: 15px 0 18px;
+      font-size: clamp(25px, 7vw, 34px);
+      line-height: 1.6;
+      text-shadow: 3px 3px 0 #21004d;
+    }
+    
+    .photo-page h2 {
+      margin-top: 24px;
+      color: #ffd66b;
+      font-size: 25px;
+      text-shadow: 2px 2px 0 #21004d;
+    }
+    
+    .photo-help {
+      margin: 14px 0;
+      color: #e8d9ff;
+      font-size: 13px;
+      line-height: 1.9;
+    }
+    
+    .photo-page label {
+      display: inline-block;
+      margin: 12px 0 8px;
+      font-weight: bold;
+    }
+    
+    #ghostSelect {
+      width: 100%;
+      max-width: 350px;
+      padding: 13px;
+      border: 2px solid #eee3ff;
+      border-radius: 14px;
+      background: #fff;
+      color: #21004d;
+      font-family: "Kaisei Decol", serif;
+      font-size: 15px;
+    }
+    
     .camera-area {
       position: relative;
       overflow: hidden;
       width: 100%;
       aspect-ratio: 3 / 4;
+      margin: 20px auto 12px;
       background: #120027;
-      border-radius: 16px;
+      border: 3px solid #eee3ff;
+      border-radius: 22px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
     }
-
+    
     #camera {
+      display: block;
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
-
+    
     #ghostOverlay {
       position: absolute;
       left: 35%;
@@ -40,35 +101,104 @@
       -webkit-user-drag: none;
       cursor: grab;
     }
-
-    .photo-page button,
-    .photo-page select,
-    .photo-page a {
+    
+    .photo-page button {
       margin: 8px 4px;
-      padding: 12px;
-      border-radius: 10px;
-      font-size: 16px;
+      padding: 13px 16px;
+      border: 2px solid white;
+      border-radius: 18px;
+      background: rgba(33, 0, 77, 0.94);
+      color: white;
+      font-family: "Kaisei Decol", serif;
+      font-size: 14px;
+      font-weight: bold;
+      cursor: pointer;
     }
-
+    
+    #startCamera,
+    #takePhoto {
+      width: 100%;
+      max-width: 350px;
+      min-height: 58px;
+      border: none;
+      border-radius: 20px;
+      background: #ff6f00;
+      color: white;
+      font-size: 19px;
+      text-shadow: 2px 2px 0 #673500;
+      box-shadow: 0 6px 0 #b84300;
+    }
+    
+    #startCamera:active,
+    #takePhoto:active {
+      transform: translateY(3px);
+      box-shadow: 0 3px 0 #b84300;
+    }
+    
+    .photo-page button:disabled {
+      opacity: 0.55;
+      cursor: not-allowed;
+    }
+    
+    .size-controls {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+    
+    .size-controls button {
+      flex: 1;
+      max-width: 165px;
+    }
+    
+    #message {
+      margin: 16px 0;
+      color: #ffd66b;
+      font-size: 14px;
+      line-height: 1.8;
+    }
+    
+    #result {
+      margin-top: 25px;
+      padding: 18px 12px;
+      border: 2px solid #8466a8;
+      border-radius: 22px;
+      background: rgba(33, 0, 77, 0.9);
+    }
+    
     #photoPreview {
       display: block;
-      max-width: 100%;
-      margin: 16px auto;
-      border-radius: 12px;
+      width: 100%;
+      max-width: 400px;
+      margin: 18px auto;
+      border: 2px solid #eee3ff;
+      border-radius: 16px;
     }
-
-    .photo-help {
-      font-size: 14px;
-      line-height: 1.7;
-    }
-
+    
     #savePhoto {
-      color: #ffad33;
-      font-weight: bold;
-      border: 2px solid #ffad33;
       display: inline-block;
-      text-decoration: none;
+      margin: 12px auto;
+      padding: 14px 20px;
+      border: 2px solid #ffad33;
+      border-radius: 18px;
       background: #21004d;
+      color: #ffad33;
+      font-family: "Kaisei Decol", serif;
+      font-size: 16px;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    
+    .photo-page > button[onclick] {
+      margin-top: 25px;
+      background: rgba(33, 0, 77, 0.9);
+    }
+    
+    @media (min-width: 768px) {
+      .photo-page {
+        max-width: 430px;
+        box-shadow: 0 0 40px rgba(0, 0, 0, 0.5);
+      }
     }
   </style>
 </head>
